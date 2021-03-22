@@ -9,7 +9,15 @@ of foods that you have fed that pet.
 function feedPet(name) {
   const foods = [];
   return (food) => {
-    return "Fed " + name + " " + foods.push(food) + ".";
+    foods.push(food);
+    let result = `Fed ${name}`
+    foods.forEach(function(element, i){
+      result += ` ${element}`
+      if (i !== foods.length - 1) {
+        result += `,`
+      }
+    })
+    return result + '.';
   }
 }
 
